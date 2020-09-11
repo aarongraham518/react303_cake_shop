@@ -4,7 +4,7 @@ import { buyCake } from '../redux';
 
 function HooksCakeContainer() {
     //useSelector gives us access to our state
-    const numOfCakes = useSelector(state => state.numOfCakes);
+    const numOfCakes = useSelector(state => state.cake.numOfCakes);
 
     //access to dispatch
     const dispatch = useDispatch();

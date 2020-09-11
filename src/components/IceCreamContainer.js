@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import { buyCake } from '../redux';
+import { buyIceCream } from '../redux';
 
-function CakeContainer(props) {
+function IceCreamContainer(props) {
     return (
         <div>
-            <h2>Number of cakes - {props.numOfCakes}</h2>
-            <button onClick={props.buyCake}>Buy Cake</button>
+            <h2>Number of icecreams - {props.numOfIceCreams}</h2>
+            <button onClick={props.buyIceCream}>Buy Icecream</button>
         </div>
     )
 }
@@ -16,14 +16,13 @@ function CakeContainer(props) {
 /*
     state from our redux store is mapped to our component props
     so apart from any props this component was receiving, it will
-    now recieve an additional prop called numOfCakes which reflects
+    now recieve an additional prop called numOfIceCreams which reflects
     the number of cakes in the redux store
 */  
-//note, our state.cake(from rootReducer).numOfCakes
-
+//note, our state.iceCream(from rootReducer).numOfIceCreams
 const mapStateToProps = state => {
     return {
-        numOfCakes: state.cake.numOfCakes
+        numOfIceCreams: state.iceCream.numOfIceCreams
     }
 }
 
@@ -31,12 +30,12 @@ const mapStateToProps = state => {
 /*
     maps our dispatch of an action creator to a prop in 
     our component. So our component will receive a 2nd 
-    additional prop called buyCake, that will dispatch
-    the buyCake action. 
+    additional prop called buyIceCream, that will dispatch
+    the buyIceCream action. 
 */
 const mapDispatchToProps = dispatch => {
     return {
-        buyCake: () => dispatch(buyCake())
+        buyIceCream: () => dispatch(buyIceCream())
     }
 }
 
@@ -44,4 +43,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
- )(CakeContainer);
+ )(IceCreamContainer);
